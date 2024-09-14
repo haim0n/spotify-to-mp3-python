@@ -22,17 +22,17 @@ Open a terminal session and navigate to this folder, using `cd`.
 cd spotify-to-mp3-python/
 ```
 
-### 2. Installing dependencies
+### 2. Install dependencies
 
 We will be installing dependencies using `pip`, the official Python package manager. If you do not have `pip`, I'd recommend checking this [thread](https://stackoverflow.com/questions/6587507/how-to-install-pip-with-python-3/) to install it.
 
 Copy and paste (and run) the following line in your terminal session to install all necessary packages.
 
 ```bash
-pip install spotipy youtube_dl youtube_search yt_dlp ffprobe ffmpeg
+pip install setuptools -e .
 ```
 
-### 3. Setting up Spotify
+### 3. Set up Spotify
 
 Unfortunately, I could not find a workaround for this step - it seems like we're forced to go through the Spotify API to fetch information about playlists. But, it doesn't take long at all.
 
