@@ -263,12 +263,12 @@ def get_config():
 def main():
     print("Please read README.md for use instructions.")
     client_id, client_secret = get_config()
-    playlist_uri = input("Playlist URI/Link: ")
+    playlist_uri = input("Playlist URI: ")
     auth_manager = SpotifyClientCredentials(
         client_id=client_id, client_secret=client_secret
     )
     sp = spotipy.Spotify(auth_manager=auth_manager)
-    playlist_name, albumArtUrls = write_playlist(sp, playlist_uri)
+    playlist_name, album_art_urls = write_playlist(sp, playlist_uri)
     reference_file = f"{playlist_name}.txt"
     # Create the playlist folder
     if not os.path.exists(playlist_name):
