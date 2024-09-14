@@ -24,22 +24,23 @@ cd spotify-to-mp3-python/
 
 ### 2. Install dependencies
 
-We will be installing dependencies using `pip`, the official Python package manager. If you do not have `pip`, I'd recommend checking this [thread](https://stackoverflow.com/questions/6587507/how-to-install-pip-with-python-3/) to install it.
+We will be installing dependencies using `uv`, the super fast Python package manager. If you do not have `uv`, I'd recommend checking this [thread](https://open.spotify.com/playlist/2FekNrO1rasjSaIndayN7O?si=66ef762c945e4f0a) to install it.
 
 Copy and paste (and run) the following line in your terminal session to install all necessary packages.
 
 ```bash
-pip install setuptools -e .
+uv venv venv && source .venv/bin/activate
+uv pip install setuptools -e .
 ```
 
 ### 2.1 Install ffmpeg
 You will be needing `ffmpeg` to convert the downloaded audio files to MP3. 
 You can download it:
 
-*Ubuntu and Debian:
-`sudo apt-get install ffmpeg`
+* Ubuntu and Debian: `sudo apt-get install ffmpeg`
 
-*macOS: `brew install ffmpeg
+* macOS: `brew install ffmpeg`
+
 * Windows: `choco install ffmpeg`
 
 
@@ -55,9 +56,8 @@ Here **it really doesn't matter what you put** for "App name" and "App descripti
 I just put "Testing" for both.
 
 The next section is "Redirect URIs", which is a bit more important. 
-You can put anything here, but I'd recommend putting `http://localhost:8888/callback`. 
-
-This is because the script uses the `spotipy` library, which uses the `localhost` URL to authenticate with Spotify.
+You can put anything here, but I'd recommend putting `http://localhost:8888/callback`.
+The script won't be using this URL, but it's necessary to put something here.
 
 Make sure to check "I understand and agree with Spotify's Developer Terms of Service and Design Guidelines" and click "Create".
 
@@ -68,22 +68,9 @@ You should see this:
 
 You will see the "Client ID" field on the left (it's redacted here). Copy and save your Client ID somewhere - you'll need it later. Click "Show client secret" under Client ID and it should show you another long list of characters. Also copy and save your Client Secret.
 
-Next, we need your playlist URI. To do this, simply open Spotify, right-click on the playlist you want to download, hover over "Share", and click "Copy Spotify URI". It should look something like this: `spotify:playlist:37i9dQZEVXbJiZcmkrIHGU`. When inputting this into the script, make sure to *only input the characters after "spotify:playlist:"*. So for this example, input `37i9dQZEVXbJiZcmkrIHGU`. Save your URI somewhere handy.
+Next, we need your playlist URI. To do this, simply open Spotify, right-click on the playlist you want to download, hover over "Share", and click "Copy link to playlist". 
 
-Alternatively, you can find the URI as follows:
-1. Right-click on the playlist you want to download
-2. Click "Share"
-3. Click "Embed Playlist"
-4. Click "Show Code"
-5. The URI is the code between "https://open.spotify.com/embed/playlist/" and the first "?"
-
-For example, in this code snippet:
-
-```html
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/11cPCycyvvpL0MDLO648vE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-```
-
-The code is 11cPCycyvvpL0MDLO648vE
+It should look something like this: `https://open.spotify.com/playlist/2FekNrO1rasjSaIndayN7O?si=6666762ba5421f0a`.
 
 ### 4. Running
 
