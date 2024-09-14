@@ -32,11 +32,35 @@ Copy and paste (and run) the following line in your terminal session to install 
 pip install setuptools -e .
 ```
 
+### 2.1 Install ffmpeg
+You will be needing `ffmpeg` to convert the downloaded audio files to MP3. 
+You can download it:
+
+*Ubuntu and Debian:
+`sudo apt-get install ffmpeg`
+
+*macOS: `brew install ffmpeg
+* Windows: `choco install ffmpeg`
+
+
+
+
 ### 3. Set up Spotify
 
 Unfortunately, I could not find a workaround for this step - it seems like we're forced to go through the Spotify API to fetch information about playlists. But, it doesn't take long at all.
 
-Go to the Spotify [dashboard](https://developer.spotify.com/dashboard/).  Log in. Once at the Dashboard, click the green button labeled "Create App". Don't worry - you're not signing up for anything or commiting to something from Spotify. Here, **it really doesn't matter what you put** for "App name" and "App description". For me, I just put "Testing" for both. Make sure to check both agreement boxes and click "Create".
+Go to the Spotify [dashboard](https://developer.spotify.com/dashboard/).  Log in. Once at the Dashboard, click the green button labeled "Create App". Don't worry - you're not signing up for anything or commiting to something from Spotify.
+
+Here **it really doesn't matter what you put** for "App name" and "App description." 
+I just put "Testing" for both.
+
+The next section is "Redirect URIs", which is a bit more important. 
+You can put anything here, but I'd recommend putting `http://localhost:8888/callback`. 
+
+This is because the script uses the `spotipy` library, which uses the `localhost` URL to authenticate with Spotify.
+
+Make sure to check "I understand and agree with Spotify's Developer Terms of Service and Design Guidelines" and click "Create".
+
 
 You should see this:
 
@@ -75,12 +99,11 @@ If all goes well, you should see your playlist beginning to download in a folder
 
 ## Modifications
 
-If you don't like inputting your Client ID, Client Secret, Username, and URI  every time, you can edit lines 96-99 in `spotify_to_mp3.py` to set the respective variables into a string containing your credentials instead of prompting with `input()`. For example, line 98 would become
+If you don't like inputting your Client ID and Client Secret every time, you can edit `config.ini` to set the respective variables. 
 
-```python
-username = "YourUserName"
-```
 
 ## Debugging
 
-This script was made in the better part of an afternoon and so it's not, by far, bug-free. Personally, I've run into no problems using this script on any of my playlists, however, your mileage may vary. The most promenant bug I've run into involves the `youtube-search` package not consistantly turning up results, and most of the time, the best solution is to simply try running the script again and giving it more chances to get the search right.
+This script was made in the better part of an afternoon, and so it's not by far bug-free. 
+
+Personally, I've run into no problems using this script on any of my playlists, however, your mileage may vary. The most promenant bug I've run into involves the `youtube-search` package not consistantly turning up results, and most of the time, the best solution is to simply try running the script again and giving it more chances to get the search right.
