@@ -29,7 +29,7 @@ We will be installing dependencies using `pip`, the official Python package mana
 Copy and paste (and run) the following line in your terminal session to install all necessary packages.
 
 ```bash
-pip3 install spotipy && pip3 install youtube_dl && pip3 install youtube_search && pip3 install yt_dlp && pip3 install ffprobe && pip3 install ffmpeg
+pip install spotipy youtube_dl youtube_search yt_dlp ffprobe ffmpeg
 ```
 
 ### 3. Setting up Spotify
@@ -53,7 +53,7 @@ Alternatively, you can find the URI as follows:
 4. Click "Show Code"
 5. The URI is the code between "https://open.spotify.com/embed/playlist/" and the first "?"
 
-For example in this code snippet:
+For example, in this code snippet:
 
 ```html
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/11cPCycyvvpL0MDLO648vE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
