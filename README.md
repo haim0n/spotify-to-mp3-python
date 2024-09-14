@@ -66,7 +66,7 @@ The code is 11cPCycyvvpL0MDLO648vE
 Running this script is straightforward. Simply run in your terminal session:
 
 ```bash
-python3 spotify_to_mp3.py
+spotify_to_mp3
 ```
 
 If you run into an error saying something like "ffprobe or avprobe not found", check out this [solution](https://stackoverflow.com/questions/30770155/ffprobe-or-avprobe-not-found-please-install-one).

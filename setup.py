@@ -17,7 +17,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'spotify_to_mp3=spotify_to_mp3:main',
+            'spotify_to_mp3=spotify_to_mp3.spotify_to_mp3:main',
         ],
     },
 )
